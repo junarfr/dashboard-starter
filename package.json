@@ -1,0 +1,19 @@
+{
+  "name": "dashboard-starter",
+  "version": "1.0.0",
+  "description": "Template untuk dashboard",
+  "author": "junarfr",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0"
+  }
+}
