@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@mdi/js": "^4.7.95",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

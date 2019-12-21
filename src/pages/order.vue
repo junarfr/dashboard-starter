@@ -1,9 +1,7 @@
 <template>
   <v-layout>
     <v-flex v-for="chip in chips" :key="chip.name" class="text-left">
-      <v-chip :class="`${chip.color}--text ${chip.color} lighten-3`">{{
-        chip.name
-      }}</v-chip>
+      <v-chip :class="`${chip.color}--text ${chip.color} lighten-3`">{{ chip.name }}</v-chip>
     </v-flex>
   </v-layout>
 </template>

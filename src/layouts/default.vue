@@ -1,14 +1,12 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+  <v-app>
+    <v-navigation-drawer v-model="drawer" fixed app>
+      <h3 class="py-3 text-center" v-text="title" />
       <v-list>
         <v-list-item
+          :ripple="false"
+          active-class="warning--text secondary"
+          class="mx-3 my-1"
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -24,94 +22,77 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-content>
+    <v-content class="accent">
       <v-container>
-        <nuxt />
+        <v-btn
+          fab
+          small
+          text
+          outlined
+          :ripple="false"
+          @click.stop="drawer = !drawer"
+        >
+          <v-icon color="secondary">{{
+            drawer ? mdiMenuOpen : mdiMenu
+          }}</v-icon>
+        </v-btn>
+        <nuxt class="mt-5" />
       </v-container>
     </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
+import {
+  mdiViewDashboardOutline,
+  mdiBookOutline,
+  mdiMenu,
+  mdiMenuOpen,
+  mdiPrinterCheck,
+  mdiTableChair
+} from "@mdi/js"
+
 export default {
-  data () {
+  data() {
     return {
-      clipped: false,
-      drawer: false,
+      drawer: window.innerWidth > 700 ? true : false,
       fixed: false,
+      mdiMenu,
+      mdiMenuOpen,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: mdiViewDashboardOutline,
+          title: "Beranda",
+          to: "/"
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: mdiBookOutline,
+          title: "Order",
+          to: "/order"
+        },
+        {
+          icon: mdiPrinterCheck,
+          title: "Revenue",
+          to: "/revenue"
+        },
+        {
+          icon: mdiTableChair,
+          title: "Assets",
+          to: "/assets"
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: "Vuetify.js"
     }
   }
 }
 </script>
+
+<style>
+#app {
+  /* font-family: "Work Sans", sans-serif !important; */
+  font-family: "90", sans-serif !important;
+}
+.page {
+  background: white !important;
+}
+</style>

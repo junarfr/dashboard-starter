@@ -1,5 +1,3 @@
-import colors from "vuetify/es5/util/colors"
-
 export default {
   mode: "spa",
   srcDir: "src/",
@@ -23,11 +21,16 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#00bcca" },
+  loadingIndicator: {
+    name: "rectangle-bounce",
+    color: "#00bcca",
+    background: "white"
+  },
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~/assets/main"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -47,16 +50,16 @@ export default {
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+        light: {
+          primary: "#00bcca",
+          accent: "#fffffb",
+          secondary: "#2c404a",
+          info: "#5b86c6",
+          warning: "#ce9d80",
+          error: "#c9666c",
+          success: "#6fcc16",
+          purple: "#775bc6"
         }
       }
     }

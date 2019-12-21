@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "90"; /*a name to be used later*/
+  src: url("/72-Regular.woff2"); /*URL to font*/
+}
+
+html {
+  overflow: auto !important;
+  font-family: "90" !important;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}
+
+.theme--light.v-card.v-card--outlined.v-card--outlined-custom {
+  border-color: #ff4081;
+}
+
+.my-elevation {
+  /* box-shadow: -2px 2px 1rem 0px rgba(90,97,105,.12); */
+  box-shadow: 2px 0px 2rem 0px rgba(90, 97, 105, 0.12);
+}
