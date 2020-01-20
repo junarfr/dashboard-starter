@@ -24,18 +24,21 @@
     </v-navigation-drawer>
     <v-content class="accent">
       <v-container>
-        <v-btn
-          fab
-          small
-          text
-          outlined
-          :ripple="false"
-          @click.stop="drawer = !drawer"
-        >
-          <v-icon color="secondary">{{
-            drawer ? mdiMenuOpen : mdiMenu
-          }}</v-icon>
-        </v-btn>
+        <v-flex row>
+          <v-btn
+            fab
+            small
+            text
+            outlined
+            :ripple="false"
+            @click.stop="drawer = !drawer"
+          >
+            <v-icon color="secondary">
+              {{ drawer ? mdiMenuOpen : mdiMenu }}
+            </v-icon>
+          </v-btn>
+          <v-breadcrumbs :items="item"></v-breadcrumbs>
+        </v-flex>
         <nuxt class="mt-5" />
       </v-container>
     </v-content>
@@ -79,6 +82,23 @@ export default {
           icon: mdiTableChair,
           title: "Assets",
           to: "/assets"
+        }
+      ],
+      item: [
+        {
+          text: "Dashboard",
+          disabled: false,
+          href: "breadcrumbs_dashboard"
+        },
+        {
+          text: "Link 1",
+          disabled: false,
+          href: "breadcrumbs_link_1"
+        },
+        {
+          text: "Link 2",
+          disabled: true,
+          href: "breadcrumbs_link_2"
         }
       ],
       title: "Vuetify.js"
